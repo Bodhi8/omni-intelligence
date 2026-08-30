@@ -1,0 +1,68 @@
+{
+  "id": "marketing-budget-under-uncertainty-v1",
+  "title": "Marketing Budget Allocation Under Causal Uncertainty",
+  "prompt": "You are advising a company that must reallocate a $1 million quarterly marketing budget.\n\nThe company has three channels:\n\nPaid Search: current spend $400,000; reported revenue $1,600,000; a 10% holdout reduced revenue by 4%; CAC $80.\nPaid Social: current spend $350,000; reported revenue $1,050,000; no controlled experiment; CAC $105.\nEmail/CRM: current spend $250,000; reported revenue $1,250,000; a randomized test showed a 12% incremental lift; CAC $25.\n\nPaid-search revenue includes customers who may have purchased without advertising. Paid social reaches more new customers than the other channels. Email has limited additional audience capacity. The CFO wants the highest immediate return. The CMO wants customer growth without materially reducing quarterly revenue. The total budget cannot change.\n\nRecommend a budget allocation for the next quarter. Provide a specific dollar allocation totaling exactly $1 million; explain what can and cannot be concluded; distinguish reported revenue from incremental impact; identify the three most important uncertainties; propose one experiment; and keep the response under 500 words. Do not invent missing data. If an exact optimum cannot be calculated, state that directly and make a defensible provisional recommendation.",
+  "rubric": [
+    {
+      "id": "accuracy",
+      "description": "Calculations and evidence interpretations are correct.",
+      "max_points": 20
+    },
+    {
+      "id": "reasoning_quality",
+      "description": "Separates attribution, causality, average return, and marginal return without false precision.",
+      "max_points": 25
+    },
+    {
+      "id": "decision_quality",
+      "description": "The recommendation balances immediate return, growth, capacity, and decision risk.",
+      "max_points": 15
+    },
+    {
+      "id": "uncertainty_handling",
+      "description": "Identifies the most decision-relevant unknowns without becoming indecisive.",
+      "max_points": 10
+    },
+    {
+      "id": "experiment_design",
+      "description": "Proposes one credible experiment that improves the next allocation decision.",
+      "max_points": 10
+    },
+    {
+      "id": "instruction_following",
+      "description": "Completes every requested element and obeys hard constraints.",
+      "max_points": 10
+    },
+    {
+      "id": "efficiency",
+      "description": "Communicates clearly and economically relative to response length and latency.",
+      "max_points": 10
+    }
+  ],
+  "constraints": {
+    "max_words": 500,
+    "allocation_total": {
+      "labels": [
+        "Paid Search",
+        "Paid Social",
+        "Email/CRM"
+      ],
+      "expected_total": 1000000,
+      "minimum_value": 100000,
+      "tolerance": 1
+    },
+    "risk_patterns": [
+      {
+        "pattern": "10%[^\\n]{0,300}\\$\\s*40(?:,?000|k)",
+        "severity": "warning",
+        "message": "The response may be converting an ambiguous 10% holdout into a $40,000 spend reduction."
+      },
+      {
+        "pattern": "12%[^\\n]{0,450}\\$\\s*(?:130|150)(?:,?000|k)",
+        "severity": "warning",
+        "message": "The response may be applying the 12% lift to an unspecified revenue baseline."
+      }
+    ]
+  }
+}
+

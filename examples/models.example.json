@@ -1,0 +1,60 @@
+{
+  "seed": 41,
+  "quality_weight": 0.9,
+  "max_rounds": 3,
+  "quality_threshold": 90,
+  "convergence_threshold": 0.55,
+  "judge_disagreement_threshold": 0.12,
+  "min_improvement": 1,
+  "plateau_patience": 1,
+  "max_estimated_cost_usd": 5,
+  "top_k": 3,
+  "solvers": [
+    {
+      "type": "openai_compatible",
+      "name": "Frontier Lab A",
+      "model": "REPLACE_WITH_MODEL",
+      "api_key_env": "OPENAI_API_KEY",
+      "base_url": "https://api.openai.com/v1",
+      "enabled": false
+    },
+    {
+      "type": "anthropic",
+      "name": "Frontier Lab B",
+      "model": "REPLACE_WITH_MODEL",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "enabled": false
+    },
+    {
+      "type": "gemini",
+      "name": "Frontier Lab C",
+      "model": "REPLACE_WITH_MODEL",
+      "api_key_env": "GEMINI_API_KEY",
+      "enabled": false
+    }
+  ],
+  "judges": [
+    {
+      "type": "openai_compatible",
+      "name": "Blinded Judge A",
+      "model": "REPLACE_WITH_MODEL",
+      "api_key_env": "OPENAI_API_KEY",
+      "base_url": "https://api.openai.com/v1",
+      "enabled": false
+    },
+    {
+      "type": "anthropic",
+      "name": "Blinded Judge B",
+      "model": "REPLACE_WITH_MODEL",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "enabled": false
+    }
+  ],
+  "synthesizer": {
+    "type": "gemini",
+    "name": "Downstream Arbiter",
+    "model": "REPLACE_WITH_MODEL",
+    "api_key_env": "GEMINI_API_KEY",
+    "enabled": false
+  }
+}

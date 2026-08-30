@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vector1-omni-intelligence"
+version = "0.1.0"
+description = "A model-agnostic decision mesh for generating, auditing, ranking, and synthesizing AI outputs."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Brian James Curry", email = "" }]
+keywords = ["llm", "multi-agent", "ensemble", "evaluation", "decision-intelligence"]
+dependencies = []
+
+[project.scripts]
+omni-intelligence = "omni_intelligence.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

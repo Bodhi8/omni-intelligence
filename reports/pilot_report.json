@@ -1,0 +1,270 @@
+{
+  "system": "OMNI — Orchestrated Multi-Model Networked Inference",
+  "mode": "replay_pilot",
+  "task_id": "marketing-budget-under-uncertainty-v1",
+  "method": "Human-defined rubric with deterministic constraint checks",
+  "limitations": [
+    "Four responses are an illustrative pilot, not a statistically powered benchmark.",
+    "Only one response included latency, so latency comparisons are incomplete.",
+    "Model identities remain blinded in the supplied data."
+  ],
+  "ranking": [
+    {
+      "candidate_id": "response-1",
+      "model_alias": "System A",
+      "latency_seconds": 12,
+      "human_scores": {
+        "accuracy": 20.0,
+        "reasoning_quality": 24.0,
+        "decision_quality": 13.0,
+        "uncertainty_handling": 10.0,
+        "experiment_design": 9.0,
+        "instruction_following": 10.0,
+        "efficiency": 9.0
+      },
+      "subtotal": 95.0,
+      "penalties": {},
+      "total": 95.0,
+      "validation": [
+        {
+          "validator": "word_limit",
+          "passed": true,
+          "severity": "error",
+          "message": "Word count 293 is within the limit of 500.",
+          "details": {
+            "word_count": 293,
+            "limit": 500
+          }
+        },
+        {
+          "validator": "allocation_total",
+          "passed": true,
+          "severity": "error",
+          "message": "Resolved allocation total is $1,000,000; expected $1,000,000.",
+          "details": {
+            "allocations": {
+              "Paid Search": 375000.0,
+              "Paid Social": 325000.0,
+              "Email/CRM": 300000.0
+            },
+            "total": 1000000.0,
+            "expected_total": 1000000.0,
+            "missing": []
+          }
+        },
+        {
+          "validator": "risk_pattern_1",
+          "passed": true,
+          "severity": "warning",
+          "message": "Risk pattern 1 not detected.",
+          "details": {
+            "matched_text": null
+          }
+        },
+        {
+          "validator": "risk_pattern_2",
+          "passed": true,
+          "severity": "warning",
+          "message": "Risk pattern 2 not detected.",
+          "details": {
+            "matched_text": null
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "response-2",
+      "model_alias": "System B",
+      "latency_seconds": null,
+      "human_scores": {
+        "accuracy": 18.0,
+        "reasoning_quality": 21.0,
+        "decision_quality": 13.0,
+        "uncertainty_handling": 10.0,
+        "experiment_design": 8.0,
+        "instruction_following": 10.0,
+        "efficiency": 9.0
+      },
+      "subtotal": 89.0,
+      "penalties": {},
+      "total": 89.0,
+      "validation": [
+        {
+          "validator": "word_limit",
+          "passed": true,
+          "severity": "error",
+          "message": "Word count 189 is within the limit of 500.",
+          "details": {
+            "word_count": 189,
+            "limit": 500
+          }
+        },
+        {
+          "validator": "allocation_total",
+          "passed": true,
+          "severity": "error",
+          "message": "Resolved allocation total is $1,000,000; expected $1,000,000.",
+          "details": {
+            "allocations": {
+              "Paid Search": 450000.0,
+              "Paid Social": 250000.0,
+              "Email/CRM": 300000.0
+            },
+            "total": 1000000.0,
+            "expected_total": 1000000.0,
+            "missing": []
+          }
+        },
+        {
+          "validator": "risk_pattern_1",
+          "passed": true,
+          "severity": "warning",
+          "message": "Risk pattern 1 not detected.",
+          "details": {
+            "matched_text": null
+          }
+        },
+        {
+          "validator": "risk_pattern_2",
+          "passed": true,
+          "severity": "warning",
+          "message": "Risk pattern 2 not detected.",
+          "details": {
+            "matched_text": null
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "response-3",
+      "model_alias": "System C",
+      "latency_seconds": null,
+      "human_scores": {
+        "accuracy": 12.0,
+        "reasoning_quality": 19.0,
+        "decision_quality": 13.0,
+        "uncertainty_handling": 9.0,
+        "experiment_design": 9.0,
+        "instruction_following": 10.0,
+        "efficiency": 9.0
+      },
+      "subtotal": 81.0,
+      "penalties": {
+        "invented_data": -10
+      },
+      "total": 71.0,
+      "validation": [
+        {
+          "validator": "word_limit",
+          "passed": true,
+          "severity": "error",
+          "message": "Word count 172 is within the limit of 500.",
+          "details": {
+            "word_count": 172,
+            "limit": 500
+          }
+        },
+        {
+          "validator": "allocation_total",
+          "passed": true,
+          "severity": "error",
+          "message": "Resolved allocation total is $1,000,000; expected $1,000,000.",
+          "details": {
+            "allocations": {
+              "Paid Search": 450000.0,
+              "Paid Social": 250000.0,
+              "Email/CRM": 300000.0
+            },
+            "total": 1000000.0,
+            "expected_total": 1000000.0,
+            "missing": []
+          }
+        },
+        {
+          "validator": "risk_pattern_1",
+          "passed": false,
+          "severity": "warning",
+          "message": "The response may be converting an ambiguous 10% holdout into a $40,000 spend reduction.",
+          "details": {
+            "matched_text": "10% of spend ($40k"
+          }
+        },
+        {
+          "validator": "risk_pattern_2",
+          "passed": true,
+          "severity": "warning",
+          "message": "Risk pattern 2 not detected.",
+          "details": {
+            "matched_text": null
+          }
+        }
+      ]
+    },
+    {
+      "candidate_id": "response-4",
+      "model_alias": "System D",
+      "latency_seconds": null,
+      "human_scores": {
+        "accuracy": 8.0,
+        "reasoning_quality": 17.0,
+        "decision_quality": 14.0,
+        "uncertainty_handling": 10.0,
+        "experiment_design": 8.0,
+        "instruction_following": 10.0,
+        "efficiency": 8.0
+      },
+      "subtotal": 75.0,
+      "penalties": {
+        "unsupported_search_calculation": -10,
+        "unsupported_email_calculation": -10
+      },
+      "total": 55.0,
+      "validation": [
+        {
+          "validator": "word_limit",
+          "passed": true,
+          "severity": "error",
+          "message": "Word count 193 is within the limit of 500.",
+          "details": {
+            "word_count": 193,
+            "limit": 500
+          }
+        },
+        {
+          "validator": "allocation_total",
+          "passed": true,
+          "severity": "error",
+          "message": "Resolved allocation total is $1,000,000; expected $1,000,000.",
+          "details": {
+            "allocations": {
+              "Paid Search": 370000.0,
+              "Paid Social": 350000.0,
+              "Email/CRM": 280000.0
+            },
+            "total": 1000000.0,
+            "expected_total": 1000000.0,
+            "missing": []
+          }
+        },
+        {
+          "validator": "risk_pattern_1",
+          "passed": false,
+          "severity": "warning",
+          "message": "The response may be converting an ambiguous 10% holdout into a $40,000 spend reduction.",
+          "details": {
+            "matched_text": "10% of spend cost 4% of revenue—roughly $64K of revenue for $40K"
+          }
+        },
+        {
+          "validator": "risk_pattern_2",
+          "passed": true,
+          "severity": "warning",
+          "message": "Risk pattern 2 not detected.",
+          "details": {
+            "matched_text": null
+          }
+        }
+      ]
+    }
+  ]
+}

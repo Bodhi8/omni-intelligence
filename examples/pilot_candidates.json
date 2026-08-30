@@ -1,0 +1,72 @@
+[
+  {
+    "id": "response-1",
+    "model_alias": "System A",
+    "latency_seconds": 12,
+    "text": "Provisional allocation\n\nPaid Search: current $400,000; recommended $375,000; change -$25,000.\nPaid Social: current $350,000; recommended $325,000; change -$25,000.\nEmail/CRM: current $250,000; recommended $300,000; change +$50,000.\nTotal: $1,000,000.\n\nAn exact optimal allocation cannot be calculated because marginal response curves, profit margins, audience capacity, and paid-social incrementality are missing. This is a defensible provisional allocation that modestly favors the channel with the strongest measured efficiency without putting near-term revenue or new-customer growth at substantial risk.\n\nReported revenue divided by spend produces reported ROAS of 4.0x for Paid Search, 3.0x for Paid Social, and 5.0x for Email/CRM. These are not necessarily incremental returns. Paid-search revenue includes purchases that might have occurred without advertising, and paid social has no controlled causal evidence.\n\nThe paid-search holdout indicates that search causes some revenue, but the result cannot be converted into a reliable marginal ROAS without knowing precisely how the holdout was implemented and measured. Likewise, email's randomized test supports a causal 12% lift for the tested population, but it does not establish that 12% of all reported email revenue is incremental or that additional spending will produce the same lift.\n\nEmail also has the lowest CAC and strongest experimental evidence, supporting a measured increase. Its limited audience capacity argues against a larger shift. Paid social retains substantial funding because it contributes disproportionately to new-customer acquisition, despite its weaker measured efficiency and uncertain incrementality.\n\nThree critical uncertainties: (1) marginal returns as spending changes; (2) paid-social incrementality; and (3) email capacity and cross-channel overlap.\n\nRun a randomized geographic holdout for paid social, stratifying comparable markets into current-spend, reduced-spend, and holdout groups. Measure incremental revenue, contribution profit, and new customers—not platform-attributed revenue—over the quarter.",
+    "human_scores": {
+      "accuracy": 20,
+      "reasoning_quality": 24,
+      "decision_quality": 13,
+      "uncertainty_handling": 10,
+      "experiment_design": 9,
+      "instruction_following": 10,
+      "efficiency": 9
+    },
+    "penalties": {}
+  },
+  {
+    "id": "response-2",
+    "model_alias": "System B",
+    "latency_seconds": null,
+    "text": "Recommended allocation (provisional): Paid Search $450,000; Paid Social $250,000; Email/CRM $300,000 (exactly $1,000,000).\n\nAn exact optimum cannot be calculated. Reported revenue is not incremental revenue, experiment coverage is incomplete, Email capacity is constrained, and marginal returns at different spend levels are unknown. The provisional shift modestly raises the channel with the strongest causal evidence and lowest CAC (Email), trims the channel with no causal evidence and highest CAC (Paid Social), and slightly increases Paid Search (partial causal evidence).\n\nPaid Search: A 10% holdout cut revenue 4%. This shows partial incrementality, but does not quantify full-channel incremental revenue, diminishing returns, or effects at other spend levels. Paid Social: No controlled experiment exists. Reported revenue and CAC cannot be treated as causal. Email/CRM: A randomized test produced a 12% incremental lift, the only clear causal estimate. Additional audience is limited, so large increases are constrained.\n\nThree uncertainties: true Paid Social incrementality; marginal response and remaining Email capacity; and how Search incrementality scales with spend.\n\nRun a multi-cell randomized or geo-holdout test on Paid Social measuring incremental revenue, new-customer acquisition, and short-term total revenue impact.",
+    "human_scores": {
+      "accuracy": 18,
+      "reasoning_quality": 21,
+      "decision_quality": 13,
+      "uncertainty_handling": 10,
+      "experiment_design": 8,
+      "instruction_following": 10,
+      "efficiency": 9
+    },
+    "penalties": {}
+  },
+  {
+    "id": "response-3",
+    "model_alias": "System C",
+    "latency_seconds": null,
+    "text": "An exact mathematically optimal allocation cannot be calculated because Paid Social lacks causal performance data and Email's exact saturation point is unknown.\n\nPaid Search: $450,000 (+$50k). Email/CRM: $300,000 (+$50k). Paid Social: $250,000 (-$100k). Total: $1,000,000.\n\nReported revenue fundamentally overstates performance by claiming credit for organic sales. Incremental impact measures only the net-new revenue caused by marketing spend.\n\nWe can conclude Paid Search drives actual incremental value. The holdout test proves that cutting 10% of spend ($40k) loses $64k (4% of $1.6M) in revenue, yielding a positive 1.6x marginal ROI. Email is highly efficient but constrained by list size. We cannot conclude the true value of Paid Social. Its $105 CAC and $1.05M reported revenue are correlational.\n\nThree uncertainties are Paid Social incrementality, the Email saturation limit, and cross-channel synergy.\n\nRun a geo-holdout test on Paid Social next quarter. Turn off Paid Social in randomly selected geographic regions while keeping it active in matched control regions. Compare total blended revenue and new customer acquisition.",
+    "human_scores": {
+      "accuracy": 12,
+      "reasoning_quality": 19,
+      "decision_quality": 13,
+      "uncertainty_handling": 9,
+      "experiment_design": 9,
+      "instruction_following": 10,
+      "efficiency": 9
+    },
+    "penalties": {
+      "invented_data": -10
+    }
+  },
+  {
+    "id": "response-4",
+    "model_alias": "System D",
+    "latency_seconds": null,
+    "text": "Paid Search: current $400,000; proposed $370,000; change -$30,000. Paid Social: current $350,000; proposed $350,000. Email/CRM: current $250,000; proposed $280,000; change +$30,000. Total: $1,000,000.\n\nAn optimal allocation cannot be calculated. Two of three channels lack a usable marginal response curve, and no profit margins are given.\n\nPaid search reports 4.0x, but the holdout says cutting 10% of spend cost 4% of revenue—roughly $64K of revenue for $40K of spend, about 1.6x at the margin. Email's 12% lift is the only randomized estimate, but if it applies to email-attributed revenue, incremental revenue is roughly $130–150K against $250K of spend—under 1.0x. Paid Social's 3.0x is unmeasured, so holding it flat preserves new-customer reach.\n\nThe stated CACs are all computed on reported customers, so they carry the same attribution problem.\n\nThe three most important uncertainties are Paid Social incrementality, the base and shape of Email's 12% lift, and linearity of the Search response.\n\nRun a geo-randomized holdout on Paid Social: split matched DMAs, go dark in about 20% for 6–8 weeks, and measure total revenue and first-time customers.",
+    "human_scores": {
+      "accuracy": 8,
+      "reasoning_quality": 17,
+      "decision_quality": 14,
+      "uncertainty_handling": 10,
+      "experiment_design": 8,
+      "instruction_following": 10,
+      "efficiency": 8
+    },
+    "penalties": {
+      "unsupported_search_calculation": -10,
+      "unsupported_email_calculation": -10
+    }
+  }
+]
+
